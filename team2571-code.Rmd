@@ -1,0 +1,78 @@
+---
+title: "CANDEV DATA CHALLENGE"
+subtitle: "TEAM 2571"
+author: "HIMANSHU GARG, KAUSTUBH DUTTA, RAJ, PRINCE"
+date: "`r Sys.time()`"
+output: 
+  html_document:
+    theme: cerulean
+    highlight: tango
+    code folding: hide
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r include=FALSE}
+my_data<- read.csv("data.csv")
+my_data
+```
+
+# Manufacturing sales, by industry for 12 Selected Census Metropolitan Areas
+
+
+```{r echo=FALSE}
+Aero <- which(my_data$North.American.Industry.Classification.System..NAICS.=="Aerospace product and parts manufacturing [3364]")
+#print(my_data$GEO[Aero]) 
+#print(my_data$VALUE[Aero])
+```
+
+**The Aerospace product and parts manufacturing [3364] got a peak in MARCH 2019 and a dip in JULY 2019**
+
+
+**Province having the Maximum revenue in Aerospace manufacturing in 10 Years among 12 metropolitan cities**
+
+### 
+```{r echo=FALSE}
+MAX_AERO<- my_data$GEO[Aero][which.max(my_data$VALUE[Aero])]
+MAX_AERO
+```
+
+**Annual Sales Value Average over 10 years of Aerospace Product and Parts Manufacturing in Region in the last 10 years**
+
+```{r echo=FALSE}
+sum(my_data$VALUE[Aero][which(my_data$GEO[Aero]==MAX_AERO)])
+```
+
+**Minimum revenue of Aero in 10 Years"**
+
+```{r echo=FALSE}
+MIN_AERO<- my_data$GEO[Aero][which.min(my_data$VALUE[Aero])]
+MIN_AERO
+```
+
+**Annual Avg over 10 years revenue of Aero in Region with minimum annual avg**
+```{r echo=FALSE}
+sum(my_data$VALUE[Aero][which(my_data$GEO[Aero]==MIN_AERO)])
+```
+
+**When was the Maximum revenue of Aero generated in 10 Years**
+```{r echo=FALSE}
+MAX_MONTH<- my_data$REF_DATE[Aero][which.max(my_data$VALUE[Aero])]
+MAX_MONTH
+```
+# Sales Trend over years
+```{r echo=FALSE}
+library(ggplot2)
+plot(my_data$GEO[Aero],my_data$VALUE[Aero])
+```
+
+
+
