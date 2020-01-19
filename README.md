@@ -7,7 +7,8 @@ Let the machine beat the analyst (C421) | Manufacturing sales, by industry for 1
 * RAJSHEKHAR MUKHERJEE
 * Prince Batra
 
-[Link To The Dataset] (https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1610001101)
+[Link To The Dataset](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1610001101)
+[SemVer](http://semver.org/)
 
 
 
